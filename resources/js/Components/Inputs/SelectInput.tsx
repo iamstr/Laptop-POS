@@ -16,6 +16,7 @@ export default function SelectInput({
   //There is no such required on Select :|
   required,
   className = "",
+  label,
   ...props
 }: SelectProps & {
   label: string;
@@ -34,6 +35,7 @@ export default function SelectInput({
   return (
     <>
       <Select
+        label={t(label)}
         placeholder={undefined}
         onPointerEnterCapture={undefined}
         onPointerLeaveCapture={undefined}

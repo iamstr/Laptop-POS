@@ -4,6 +4,7 @@ import COUNTRIES from "./COUNTRIES";
 import { IBusiness } from "@/types";
 import SelectInput from "@/Components/Inputs/SelectInput";
 import { UseBetterForm } from "@/Utilities/useBetterForm";
+import { useTranslation } from "react-i18next";
 
 export default function CountryInput<
   T extends { country: IBusiness["country"] },
@@ -16,6 +17,7 @@ export default function CountryInput<
     [],
   );
 
+  const { t } = useTranslation();
   return (
     <SelectInput
       label="Country"
@@ -43,7 +45,7 @@ export default function CountryInput<
               alt={c.emoji}
               className="h-5 w-7 rounded object-cover"
             />
-            {c.name}
+            {t(c.name)}
           </Option>
         ))}
     </SelectInput>

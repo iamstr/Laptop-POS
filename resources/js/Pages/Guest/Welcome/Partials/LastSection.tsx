@@ -4,13 +4,14 @@ import { useTranslation } from "react-i18next";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function LastSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <section
       id="ready-to-get-started"
+
       className="-mt-8 mb-8 flex flex-col rounded-t-3xl bg-white px-4 py-32 shadow-lg md:px-14 lg:flex-row lg:px-24"
     >
-      <div className="w-full">
+      <div dir={i18n.dir()} className="w-full">
         <Typography
           variant="h2"
           className="text-gray-800"

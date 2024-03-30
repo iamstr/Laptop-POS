@@ -4,8 +4,7 @@ import { FaExpandAlt } from "react-icons/fa";
 import { FaGaugeHigh, FaLock, FaShield } from "react-icons/fa6";
 
 export default function PoweredBySection() {
-
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <section
       id="powered-by-aws"
@@ -30,7 +29,7 @@ export default function PoweredBySection() {
           ></polygon>
         </svg>
       </div>
-      <div className="container mx-auto">
+      <div dir={i18n.dir()} className="container mx-auto">
         <div className="flex flex-wrap items-center">
           <div className="-mt-32 ml-auto mr-auto w-10/12 px-1 sm:px-8 md:w-6/12 md:px-4 lg:w-4/12">
             <div className="relative mb-6 flex w-full min-w-0 flex-col break-words rounded-lg bg-primary-600 shadow-lg">
@@ -54,10 +53,12 @@ export default function PoweredBySection() {
                   ></polygon>
                 </svg>
                 <h4 className="text-xl font-bold text-blue-gray-50">
-                  { t( "Powered by Amazon Web Services" ) }
+                  {t("Powered by Amazon Web Services")}
                 </h4>
                 <p className="text-md mt-2 font-light text-blue-gray-50">
-                  { t( "Our system is built on the Amazon Web Services (AWS) platform, the world’s most comprehensive and broadly adopted cloud provider" ) }
+                  {t(
+                    "Our system is built on the Amazon Web Services (AWS) platform, the world’s most comprehensive and broadly adopted cloud provider",
+                  )}
                 </p>
               </blockquote>
             </div>
@@ -70,9 +71,13 @@ export default function PoweredBySection() {
                     <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white p-3 text-center shadow-md">
                       <FaLock className="text-lg text-blue-gray-600" />
                     </div>
-                    <h6 className="mb-1 text-xl font-semibold">Secure </h6>
+                    <h6 className="mb-1 text-xl font-semibold">
+                      {t("Secure")}
+                    </h6>
                     <p className="text-blueGray-500 mb-4">
-                      { t( "AWS protects our system and your data with the most advanced security features, such as encryption, firewalls, and access management." ) }
+                      {t(
+                        "AWS protects our system and your data with the most advanced security features, such as encryption, firewalls, and access management.",
+                      )}
                     </p>
                   </div>
                 </div>
@@ -81,9 +86,11 @@ export default function PoweredBySection() {
                     <div className="text-blueGray-500 mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white p-3 text-center shadow-md">
                       <FaGaugeHigh className="text-xl text-blue-gray-600" />
                     </div>
-                    <h6 className="mb-1 text-xl font-semibold">{ t( "Fast" ) }</h6>
+                    <h6 className="mb-1 text-xl font-semibold">{t("Fast")}</h6>
                     <p className="text-blueGray-500 mb-4">
-                      { t( "High-performance computing, networking, and database services that allow us to process large amounts of data and deliver results in real-time." ) }
+                      {t(
+                        "High-performance computing, networking, and database services that allow us to process large amounts of data and deliver results in real-time.",
+                      )}
                     </p>
                   </div>
                 </div>
@@ -94,9 +101,13 @@ export default function PoweredBySection() {
                     <div className="text-blueGray-500 mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white p-3 text-center shadow-md">
                       <FaShield className="text-lg text-blue-gray-600" />
                     </div>
-                    <h6 className="mb-1 text-xl font-semibold">{ t( "Reliable" ) }</h6>
+                    <h6 className="mb-1 text-xl font-semibold">
+                      {t("Reliable")}
+                    </h6>
                     <p className="text-blueGray-500 mb-4">
-                      { t( "Our system is always available and resilient to failures, with 99.99% uptime." ) }
+                      {t(
+                        "Our system is always available and resilient to failures, with 99.99% uptime.",
+                      )}
                     </p>
                   </div>
                 </div>
@@ -105,9 +116,14 @@ export default function PoweredBySection() {
                     <div className="text-blueGray-500 mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white p-3 text-center shadow-md">
                       <FaExpandAlt className="text-lg text-blue-gray-600" />
                     </div>
-                    <h6 className="mb-1 text-xl font-semibold">{ t( "Scalable" ) }</h6>
+                    <h6 className="mb-1 text-xl font-semibold">
+                      {t("Scalable")}
+                    </h6>
                     <p className="text-blueGray-500 mb-4">
-                      { t( "Tools such as auto-scaling and elastic load balancing, enable us to scale without compromising perfor{{shy}}mance, availability, or security",{shy:'\u00AD'/* &shy; break a long word*/} ) }
+                      {t(
+                        "Tools such as auto-scaling and elastic load balancing, enable us to scale without compromising perfor{{shy}}mance, availability, or security",
+                        { shy: "\u00AD" /* &shy; break a long word*/ },
+                      )}
                     </p>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ import { Transition } from "@headlessui/react";
 import { useEffect, useRef, useState } from "react";
 import { FaChartSimple, FaReceipt, FaShop } from "react-icons/fa6";
 import Solutions from "./Partials/Solutions";
+import { useTranslation } from "react-i18next";
 
 export default function Features() {
   const [tab, setTab] = useState<number>(1);
@@ -22,6 +23,7 @@ export default function Features() {
     heightFix();
   }, []);
 
+  const { t,i18n } = useTranslation();
   return (
     <section
       id="features"
@@ -39,13 +41,13 @@ export default function Features() {
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-12 text-center xl:pb-16">
             <h1 className="mb-5 text-4xl font-light uppercase tracking-wide text-primary-600">
-              Explore the solutions
+              { t( "Explore the solutions" ) }
             </h1>
             <Solutions />
           </div>
 
           {/* Section content */}
-          <div className="xl:grid xl:grid-cols-12 xl:gap-6">
+          <div dir={i18n.dir()} className="xl:grid xl:grid-cols-12 xl:gap-6">
             {/* Content */}
             <div
               className="mx-auto max-w-xl xl:col-span-7 xl:mt-6 xl:w-full xl:max-w-none"
@@ -53,7 +55,7 @@ export default function Features() {
             >
               <div className="mb-8 xl:pr-16">
                 <h3 className="text-center text-2xl font-semibold xl:text-left">
-                  Simple yet powerful suite of tools
+                  { t( "Simple yet powerful suite of tools" ) }
                 </h3>
               </div>
               {/* Tabs buttons */}
@@ -72,13 +74,10 @@ export default function Features() {
                 >
                   <div>
                     <div className="mb-1 font-bold leading-snug tracking-tight">
-                      Organize and manage your product inventory
+                      { t( "Organize and manage your product inventory" ) }
                     </div>
                     <div className="text-gray-600">
-                      Efficiently organize product information like names,
-                      descriptions, SKUs (Stock Keeping Units), and prices. Stay
-                      on top of your inventory with accurate and easily updated
-                      product details.
+                      { t( "Efficiently organize product information like names, descriptions, SKUs (Stock Keeping Units), and prices. Stay on top of your inventory with accurate and easily updated product details." ) }
                     </div>
                   </div>
                   <div className="ml-3 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-white shadow">
@@ -98,13 +97,10 @@ export default function Features() {
                 >
                   <div>
                     <div className="mb-1 font-bold leading-snug tracking-tight">
-                      Process and complete your customer orders
+                      { t( "Process and complete your customer orders" ) }
                     </div>
                     <div className="text-gray-600">
-                      Quickly and easily process customer orders with features
-                      like barcode, payment methods, change calculation, and
-                      customizable list. Generate bills with accurate and
-                      detailed information.
+                      { t( "Quickly and easily process customer orders with features like barcode, payment methods, change calculation, and customizable list. Generate bills with accurate and detailed information." ) }
                     </div>
                   </div>
                   <div className="ml-3 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-white shadow">
@@ -124,13 +120,10 @@ export default function Features() {
                 >
                   <div>
                     <div className="mb-1 font-bold leading-snug tracking-tight">
-                      Monitor and analyze your business
+                      { t( "Monitor and analyze your business" ) }
                     </div>
                     <div className="text-gray-600">
-                      Gain valuable insights with a clear and simple dashboard
-                      that shows your sales, bills, staff performance, and
-                      inventory status. Find out which products are selling
-                      well, and which ones are out of stock.
+                      { t( "Gain valuable insights with a clear and simple dashboard that shows your sales, bills, staff performance, and inventory status. Find out which products are selling well, and which ones are out of stock." ) }
                     </div>
                   </div>
                   <div className="ml-3 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-white shadow">

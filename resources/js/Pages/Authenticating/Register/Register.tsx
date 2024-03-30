@@ -6,6 +6,7 @@ import BusinessForm from "./Partials/BusinessForm/BusinessForm";
 import UserForm from "./Partials/UserForm";
 import useBetterForm from "@/Utilities/useBetterForm";
 import RegisterAction from "./Partials/RegisterAction";
+import { useTranslation } from "react-i18next";
 
 export default function Register() {
   const params = new URLSearchParams(window.location.search);
@@ -68,25 +69,25 @@ export default function Register() {
       },
     );
   };
-
+  const { t } = useTranslation();
   return (
     <GuestFormLayout>
-      <Head title="Register" />
+      <Head title={t(  "Register"   )}/>
       <main className="space-y-4">
         <header>
-          <h1 className="mx-3 text-center text-3xl font-extrabold">Register</h1>
+          <h1 className="mx-3 text-center text-3xl font-extrabold">{ t( "Register" ) }</h1>
         </header>
         <section>
           <form className="space-y-4" onSubmit={submit}>
             <section>
               <p className="text-center text-lg text-blue-gray-500">
-                Account Details
+                { t( "Account Details" ) }
               </p>
               <UserForm form={userForm} />
             </section>
             <section>
               <p className="text-center text-lg text-blue-gray-500">
-                Business Details
+                { t( "Business Details" ) }
               </p>
               <BusinessForm form={businessForm} />
             </section>

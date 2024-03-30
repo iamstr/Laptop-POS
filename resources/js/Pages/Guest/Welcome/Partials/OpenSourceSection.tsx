@@ -5,13 +5,13 @@ import { FaCodeBranch } from "react-icons/fa6";
 
 export default function OpenSourceSection() {
 
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
   return (
     <section id="public-source" className="overflow-hidden bg-[#475569] py-24">
 
       <div className="container mx-auto pb-24">
         <div className="flex flex-wrap justify-center">
-          <div className="ml-auto mr-auto w-full px-12 lg:mt-28 lg:w-5/12 lg:px-4">
+          <div dir={i18n.dir()} className="ml-auto mr-auto w-full px-12 lg:mt-28 lg:w-5/12 lg:px-4">
             <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-white p-3 text-center text-blue-gray-700 shadow-lg">
               <FaCodeBranch className="text-xl"/>
             </div>

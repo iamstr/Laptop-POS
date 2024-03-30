@@ -1,8 +1,10 @@
 import SupportEmailLink from "@/Components/SupportEmailLink";
 import A from "@/Components/Typography/A";
 import { Tooltip } from "@material-tailwind/react";
+import { useTranslation } from "react-i18next";
 
 export default function Footer({ className = "" }: { className?: string }) {
+  const { t } = useTranslation();
   return (
     // {/* <hr className="mt-24 border-gray-300" /> */}
 
@@ -22,7 +24,7 @@ export default function Footer({ className = "" }: { className?: string }) {
           </div> */}
 
           <div className="text-center text-sm text-gray-500 dark:text-gray-400 sm:ml-0 sm:text-right">
-            &copy; {new Date().getFullYear()} Laptop POS, All Rights Reserved.
+            &copy; {new Date().getFullYear()} {" "}{t( "Laptop POS, All Rights Reserved." )}
           </div>
           <div className="text-sm ">
             <Tooltip content="Contact us">
@@ -35,14 +37,14 @@ export default function Footer({ className = "" }: { className?: string }) {
               className="text-gray-500 hover:text-gray-700"
               href={route("termsAndConditions")}
             >
-              Terms
+              { t( "Terms" ) }
             </A>{" "}
             {" · "}
             <A
               className="text-gray-500 hover:text-gray-700"
               href={route("privacyPolicy")}
             >
-              Privacy Policy
+              { t( "Privacy Policy" ) }
             </A>
           </div>
         </footer>

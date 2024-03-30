@@ -3,6 +3,7 @@ import { Transition } from "@headlessui/react";
 import PrimaryLink from "@/Components/Buttons/PrimaryLink";
 import { FaArrowRight } from "react-icons/fa";
 import TextLink from "@/Components/TextLink";
+import { useTranslation } from "react-i18next";
 
 export default function MobileMenu() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
@@ -36,6 +37,7 @@ export default function MobileMenu() {
     return () => document.removeEventListener("keydown", keyHandler);
   });
 
+  const { t } = useTranslation();
   return (
     <div className="flex md:hidden">
       {/* Hamburger button */}
@@ -79,17 +81,17 @@ export default function MobileMenu() {
                 className="justify-center"
                 onClick={() => setMobileNavOpen(false)}
               >
-                Login
+                {t("Login")}
               </TextLink>
             </li>
             <li>
               <PrimaryLink
                 href={route("register.method")}
-                className="flex justify-center normal-case group"
+                className="group flex justify-center normal-case"
                 onClick={() => setMobileNavOpen(false)}
               >
-                <span>Register&nbsp;</span>
-                <FaArrowRight className="group-hover:translate-x-2 transition"/>
+                <span>{t("Register")}&nbsp;</span>
+                <FaArrowRight className="transition group-hover:translate-x-2" />
               </PrimaryLink>
             </li>
           </ul>

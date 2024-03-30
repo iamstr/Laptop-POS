@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import { FaCircleCheck } from "react-icons/fa6";
 
 export default function ParagraphAndControllers() {
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
   return (
-    <div className="mx-auto max-w-3xl">
+    <div dir={i18n.dir()} className="mx-auto max-w-3xl">
       <p
         className="mb-8 text-xl text-gray-600"
         data-aos="zoom-y-out"
@@ -24,21 +24,23 @@ export default function ParagraphAndControllers() {
           href={route("register.method")}
           className="!bg-gradient-to-br !from-yellow-600  to-secondary-400 px-7 py-4 normal-case shadow-lg "
         >
-          <span className="text-sm tracking-wide">Create FREE Account</span>
+          <span className="text-sm tracking-wide">
+            {t("Create FREE Account")}
+          </span>
         </SecondaryLink>
       </div>
       <div className="mt-5 flex translate-x-[20%] flex-col justify-center text-gray-500 md:translate-x-0 md:flex-row md:space-x-4 ">
         <div className="flex ">
-          <FaCircleCheck className="mr-1 mt-0.5 text-lg text-green-400" />
-          Free Trial
+          <FaCircleCheck className="mx-1 mt-0.5 text-lg text-green-400" />
+          {t("Free Trial")}
         </div>
         <div className="flex">
-          <FaCircleCheck className="mr-1 mt-0.5 text-lg text-green-400" />
-          No credit card required
+          <FaCircleCheck className="mx-1 mt-0.5 text-lg text-green-400" />
+          { t( "No credit card required" ) }
         </div>
         <div className="flex">
-          <FaCircleCheck className="mr-1 mt-0.5 text-lg text-green-400" />
-          Unlimited access to all features{" "}
+          <FaCircleCheck className="mx-1 mt-0.5 text-lg text-green-400" />
+          { t( "Unlimited access to all features" ) }
         </div>
       </div>
     </div>
