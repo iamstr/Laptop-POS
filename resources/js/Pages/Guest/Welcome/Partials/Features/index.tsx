@@ -54,7 +54,7 @@ export default function Features() {
               data-aos="fade-right"
             >
               <div className="mb-8 xl:pr-16">
-                <h3 className="text-center text-2xl font-semibold xl:text-left">
+                <h3 className={ "text-center text-2xl font-semibold xl:ltr:text-left xl:rtl:text-right" }>
                   { t( "Simple yet powerful suite of tools" ) }
                 </h3>
               </div>

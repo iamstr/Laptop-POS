@@ -4,6 +4,7 @@ import A from "@/Components/Typography/A";
 import Divider from "@/Components/Typography/Divider";
 import GuestFormLayout from "@/Layouts/GuestLayout/GuestFormLayout";
 import { Head, Link } from "@inertiajs/react";
+import { useTranslation } from "react-i18next";
 import { FaGithub } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa6";
 
@@ -14,13 +15,14 @@ export default function RegisterMethod() {
       ? { plan: params.get("plan"), period: params.get("period") }
       : {};
 
+  const { t, i18n } = useTranslation();
   return (
     <GuestFormLayout>
       <Head title="Register Method" />
-      <div className="p-4">
+      <div dir={i18n.dir()} className="p-4">
         <h2 className="mb-1 text-2xl font-bold text-primary-900 dark:text-white">
-          Signing up for <AppName className="!font-extrabold" /> is fast and
-          free.
+          {t("Signing up for")} <AppName className="!font-extrabold" />{" "}
+          {t("is fast and free.")}
         </h2>
         <div className="mt-10 grid space-y-4">
           <a
@@ -34,7 +36,7 @@ export default function RegisterMethod() {
                 alt="google logo"
               />
               <span className="block w-max text-sm font-semibold tracking-wide text-gray-700 transition duration-300 group-hover:text-primary-800 dark:text-white sm:text-base">
-                Register with Google
+                {t("Register with Google")}
               </span>
             </div>
           </a>
@@ -56,12 +58,12 @@ export default function RegisterMethod() {
             <div className="relative mt-0.5 flex items-center justify-center space-x-4">
               <FaGithub className="absolute left-0 h-5 w-5 text-black transition duration-300 group-hover:text-primary-800 " />
               <span className="block w-max text-sm font-semibold tracking-wide text-gray-700 transition duration-300 group-hover:text-primary-800 dark:text-white sm:text-base">
-                Register with Github
+                {t("Register with Github")}
               </span>
             </div>
           </a>
 
-          <Divider>or</Divider>
+          <Divider>{t("or")}</Divider>
 
           <PrimaryLink
             href={route("register", subParam)}
@@ -70,7 +72,7 @@ export default function RegisterMethod() {
             <div className="relative mt-0.5 flex items-center justify-center space-x-4">
               <FaEnvelope className="absolute left-0 h-5 w-5 text-gray-800 transition duration-300 group-hover:text-primary-800" />
               <span className="block w-max text-sm font-semibold tracking-wide text-gray-700 transition duration-300 group-hover:text-primary-800 dark:text-white sm:text-base">
-                Continue with email
+                {t("Continue with email")}
               </span>
             </div>
           </PrimaryLink>
@@ -84,15 +86,18 @@ export default function RegisterMethod() {
             href={route("login")}
             className="text-gray-600 underline hover:text-gray-900 focus:outline-none "
           >
-            Already registered?
+            {t("Already registered?")}
           </Link>
         </p>
 
         <p className="mt-4 text-center text-xs text-gray-600">
-          By creating an account, you agree to our{" "}
-          <A href={route("termsAndConditions")}>Terms & Conditions</A> and
-          confirm you have read our{" "}
-          <A href={route("privacyPolicy")}>Privacy and Cookie Statement</A>.
+          {t("By creating an account, you agree to our")}{" "}
+          <A href={route("termsAndConditions")}>{t("Terms & Conditions")}</A>{" "}
+          {t("and confirm you have read our")}{" "}
+          <A href={route("privacyPolicy")}>
+            {t("Privacy and Cookie Statement")}
+          </A>
+          .
         </p>
       </div>
     </GuestFormLayout>

@@ -8,6 +8,7 @@ import {
 import { ApexOptions } from "apexcharts";
 import { ReactNode } from "react";
 import Chart from "react-apexcharts";
+import { useTranslation } from "react-i18next";
 
 export function StatisticsChart({
   chart,
@@ -15,8 +16,10 @@ export function StatisticsChart({
   description,
   footer,
 }: StatisticsChartProps) {
+  const { t, i18n } = useTranslation();
   return (
     <Card
+      dir={i18n.dir()}
       className="rounded-none shadow sm:rounded-lg"
       placeholder={undefined}
       onPointerEnterCapture={undefined}
@@ -46,7 +49,7 @@ export function StatisticsChart({
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
         >
-          {title}
+          {t(title)}
         </Typography>
         <Typography
           variant="small"
@@ -55,7 +58,7 @@ export function StatisticsChart({
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
         >
-          {description}
+          {t(description)}
         </Typography>
       </CardBody>
       {footer && (
@@ -75,7 +78,7 @@ export function StatisticsChart({
 export interface StatisticsChartProps {
   chart: ChartProps;
   title: string;
-  description: string | ReactNode;
+  description: string;
   footer?: ReactNode;
 }
 

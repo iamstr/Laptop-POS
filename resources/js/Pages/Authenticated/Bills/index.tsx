@@ -19,7 +19,7 @@ export default function Bills({
 }>) {
   const bills: IBill[] = paginateBills.data;
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <AuthenticatedLayout
       user={auth.user}
@@ -68,7 +68,7 @@ export default function Bills({
               </tbody>
             </table>
             {bills.length === 0 && (
-              <div className="my-12 flex justify-center gap-4 opacity-50">
+              <div dir={i18n.dir()} className="my-12 flex justify-center gap-4 opacity-50">
                 <BsSearch className="mt-1" />
                 <p>{t("No bills found!")}</p>
               </div>

@@ -10,6 +10,7 @@ import COUNTRIES from "./COUNTRIES";
 import { IBusiness, ICreateBusiness } from "@/types";
 import { UseBetterForm } from "@/Utilities/useBetterForm";
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
 export function PhoneInput<
   T extends {
@@ -35,6 +36,7 @@ export function PhoneInput<
     [form.data.countryCallingCode],
   );
 
+  const { t } = useTranslation();
   return (
     <>
       <div className="relative flex w-full">
@@ -85,7 +87,7 @@ export function PhoneInput<
                     alt={c.name}
                     className="h-5 w-7 rounded object-cover"
                   />
-                  {c.name}{" "}
+                  {t(c.name)}{" "}
                   <span className="ml-auto">{c.countryCallingCode}</span>
                 </MenuItem>
               );

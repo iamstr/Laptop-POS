@@ -133,7 +133,7 @@ export default function InventoryHeader({
               disabled={filter.stock === "out" && k.includes("stock")}
               className="flex items-center"
             >
-              {v}
+              {t( v )}
             </Option>
           ))}
         </SelectInput>

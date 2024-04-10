@@ -23,7 +23,7 @@ export default function OutOfStock({
     { open: true; product: IProduct } | { open: false; product?: IProduct }
   >({ open: false });
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <>
       <CreateEditProductModal
@@ -43,7 +43,7 @@ export default function OutOfStock({
         onPointerLeaveCapture={undefined}
       >
         <div className="p-6">
-          <header>
+          <header dir={i18n.dir()}>
             <Typography
               variant="h6"
               color="blue-gray"

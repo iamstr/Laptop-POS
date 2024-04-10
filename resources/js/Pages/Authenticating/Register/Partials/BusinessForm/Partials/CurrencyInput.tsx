@@ -4,6 +4,7 @@ import COUNTRIES, { Country } from "./COUNTRIES";
 import { ICreateBusiness } from "@/types";
 import SelectInput from "@/Components/Inputs/SelectInput";
 import { UseBetterForm } from "@/Utilities/useBetterForm";
+import { useTranslation } from "react-i18next";
 
 export default function CurrencyInput<T extends ICreateBusiness>({
   form,
@@ -21,8 +22,8 @@ export default function CurrencyInput<T extends ICreateBusiness>({
           a.currencies[0].name > b.currencies[0].name
             ? 1
             : a.currencies[0].name < b.currencies[0].name
-            ? -1
-            : 0,
+              ? -1
+              : 0,
         )
         .filter(
           (v, i, arr) =>
@@ -51,6 +52,8 @@ export default function CurrencyInput<T extends ICreateBusiness>({
   const [countryIndex, setCountryIndex] = useState<number | null>(
     getCountryIndex(country),
   );
+
+  const { t } = useTranslation();
   return (
     <SelectInput
       label="Currency"
@@ -82,7 +85,7 @@ export default function CurrencyInput<T extends ICreateBusiness>({
           className="flex items-center gap-2"
         >
           <span className="w-7 text-gray-900">{c.currencies[0].symbol}</span>
-          {c.currencies[0].name}
+          {t(c.currencies[0].name)}
         </Option>
       ))}
     </SelectInput>

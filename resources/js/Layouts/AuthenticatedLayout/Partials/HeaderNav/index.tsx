@@ -6,14 +6,16 @@ import Dropdown from "@/Components/Dropdown";
 import ResponsiveNavLink from "./Partials/ResponsiveNavLink";
 import { ROUTES } from "../..";
 import { AuthPageProps, IUser } from "@/types";
+import { useTranslation } from "react-i18next";
 
 export default function HeaderNav({ user }: { user: IUser }) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] =
     useState(false);
   const businessLogo = usePage<AuthPageProps>().props.auth.business.logo;
 
+  const { t, i18n } = useTranslation();
   return (
-    <nav className="border-b print:hidden border-gray-100 bg-white">
+    <nav className="border-b border-gray-100 bg-white print:hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 justify-between">
           <div className="flex">
@@ -33,7 +35,7 @@ export default function HeaderNav({ user }: { user: IUser }) {
                   href={route(r.link)}
                   active={route().current(r.link)}
                 >
-                  {r.name}
+                  {t(r.name)}
                 </NavLink>
               ))}
             </div>
@@ -65,11 +67,11 @@ export default function HeaderNav({ user }: { user: IUser }) {
 
                 <Dropdown.Content>
                   <Dropdown.Link href={route("profile.edit")}>
-                    Profile
+                    {t("Profile")}
                   </Dropdown.Link>
                   {user.role === "Owner" && (
                     <Dropdown.Link href={route("business.edit")}>
-                      Business
+                      {t("Business")}
                     </Dropdown.Link>
                   )}
                   <Dropdown.Link
@@ -77,7 +79,7 @@ export default function HeaderNav({ user }: { user: IUser }) {
                     method="post"
                     as="button"
                   >
-                    Log Out
+                    {t("Log Out")}
                   </Dropdown.Link>
                 </Dropdown.Content>
               </Dropdown>
@@ -133,7 +135,7 @@ export default function HeaderNav({ user }: { user: IUser }) {
               href={route(r.link)}
               active={route().current(r.link)}
             >
-              {r.name}
+              {t(r.name)}
             </ResponsiveNavLink>
           ))}
         </div>
@@ -150,13 +152,13 @@ export default function HeaderNav({ user }: { user: IUser }) {
 
           <div className="mt-3 space-y-1">
             <ResponsiveNavLink href={route("profile.edit")}>
-              Profile
+              {t("Profile")}
             </ResponsiveNavLink>
             <ResponsiveNavLink href={route("business.edit")}>
-              Business
+              {t("Business")}
             </ResponsiveNavLink>
             <ResponsiveNavLink method="post" href={route("logout")} as="button">
-              Log Out
+              {t("Log Out")}
             </ResponsiveNavLink>
           </div>
         </div>
